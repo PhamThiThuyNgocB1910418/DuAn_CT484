@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:stylish/constants.dart';
+import 'package:myshop/constants.dart';
+import 'package:myshop/models/Category.dart';
+import 'package:myshop/models/Product.dart';
 
+import 'components/categories.dart';
+import 'components/new_arrival.dart';
+import 'components/popular.dart';
+import 'components/product_card.dart';
 import 'components/search_form.dart';
+import 'components/section_title.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const routeName = '/home';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -35,7 +43,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(defaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,56 +62,94 @@ class HomeScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: defaultPadding),
               child: searchForm(),
-            )],
+            ),
+            const Categories(),
+            const SizedBox(height: defaultPadding),
+            const NewArrival(),
+            const SizedBox(height: defaultPadding),
+            const Popular(),
+          ],
         ),
       ),
     );
   }
 }
 
-// class searchForm extends StatelessWidget {
-//   const searchForm({
+// class NewArrival extends StatelessWidget {
+//   const NewArrival({
 //     Key? key,
 //   }) : super(key: key);
 
 //   @override
 //   Widget build(BuildContext context) {
-//     return Form(
-//       child: TextFormField(
-//         decoration: InputDecoration(
-//           hintText: "Search items...",
-//           filled: true,
-//           fillColor: Colors.white,
-//           border: outlineInputBorder,
-//           enabledBorder: outlineInputBorder,
-//           focusedBorder: outlineInputBorder,
-//           prefixIcon: Padding(
-//             padding: const EdgeInsets.all(12),
-//             child: SvgPicture.asset("assets/icons/Search.svg"),
-//           ),
-//           suffixIcon: SizedBox(
-//             height: 48,
-//             width: 48,
-//             child: ElevatedButton(
-//               onPressed: () {},
-//               style: ElevatedButton.styleFrom(
-//                   backgroundColor: primaryColor,
-//                   shape: const RoundedRectangleBorder(
-//                     borderRadius: BorderRadius.all(
-//                       Radius.circular(defaultBorderRadius)
-//                     )
-//               ),
-//             child: SvgPicture.asset("assets/icons/Filter.svg"),
-//           ),
+//     return Column(
+//       children: [
+//         SectionTitle(
+//           title: "New Arrival",
+//           pressSeeAll: () {},
 //         ),
-//       ))
-//     ),
+//         SingleChildScrollView(
+//           scrollDirection: Axis.horizontal,
+//           child: Row(
+//             children: List.generate(
+//               demo_product.length,
+//               (index) => Padding(
+//                 padding:
+//                     const EdgeInsets.only(left: defaultBorderRadius),
+//                 child: ProductCard(
+//                   image: demo_product[index].image,
+//                   title: demo_product[index].title,
+//                   price: demo_product[index].price,
+//                   bgColor: demo_product[index].bgColor,
+//                   // Color(0xFFEFEFF2),
+//                   press: () {},
+//                 ),
+//               ),
+//             ),
+//           ),
+//         )
+//       ],
 //     );
-  
 //   }
 // }
 
-// const outlineInputBorder = OutlineInputBorder(
-//   borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
-//   borderSide: BorderSide.none,
-// );
+
+// class Popular extends StatelessWidget {
+//   const Popular({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         SectionTitle(
+//           title: "Popular",
+//           pressSeeAll: () {},
+//         ),
+//         SingleChildScrollView(
+//           scrollDirection: Axis.horizontal,
+//           child: Row(
+//             children: List.generate(
+//               demo_product.length,
+//               (index) => Padding(
+//                 padding:
+//                     const EdgeInsets.only(left: defaultBorderRadius),
+//                 child: ProductCard(
+//                   image: demo_product[index].image,
+//                   title: demo_product[index].title,
+//                   price: demo_product[index].price,
+//                   bgColor: demo_product[index].bgColor,
+//                   // Color(0xFFEFEFF2),
+//                   press: () {},
+//                 ),
+//               ),
+//             ),
+//           ),
+//         )
+//       ],
+//     );
+//   }
+// }
+
+
