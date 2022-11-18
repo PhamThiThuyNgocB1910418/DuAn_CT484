@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
             SvgPicture.asset("assets/icons/Location.svg"),
             const SizedBox(width: defaultPadding / 2),
             Text(
-              "15/2 New Texas",
+              " Can Tho",
               style: Theme.of(context).textTheme.subtitle2,
             )
           ],
@@ -75,11 +75,9 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: defaultPadding),
             const Tshirt(),
             const SizedBox(height: defaultPadding),
-
           ],
         ),
       ),
-
       bottomNavigationBar: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -96,20 +94,16 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {},
             ),
             IconButton(
-              icon: const Icon(Icons.person),
+              icon: const Icon(Icons.logout),
               onPressed: () {
-                Navigator.push(context, 
-                MaterialPageRoute(builder: (context){
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return AuthScreen();
-                })
-                );
+                }));
               },
             )
 
             //MainAxisAlignment:MainAxisAlignment.WrapAlignment.spaceBetween,
           ]),
-      
     );
   }
 }
-
