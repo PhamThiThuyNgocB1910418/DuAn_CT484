@@ -3,8 +3,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:myshop/constants.dart';
 import 'package:myshop/screens/auth/auth_manager.dart';
 import 'package:myshop/screens/auth/auth_screen.dart';
+//import 'package:myshop/screens/auth/auth_screen.dart';
 import 'package:myshop/screens/home/home_screen.dart';
 import 'package:myshop/screens/splash_screen.dart';
+//import 'package:myshop/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -37,17 +39,18 @@ class MyApp extends StatelessWidget {
               bodyText2: TextStyle(color: Colors.black54),
             ),
           ),
-          home: AuthManager.isAuth 
-              ? const AuthScreen()
-              : FutureBuilder(
-                  future: AuthManager.tryAutoLogin(),
-                  builder: (context, snapshot) {
-                    return snapshot.connectionState == ConnectionState
-                          ? const SplashScreen()
-                          : const AuthScreen();
-                  },
-              ),
-          //const HomeScreen(), //chay app ban dau
+          // home: AuthManager.isAuth 
+          //     ? const AuthScreen()
+          //     : FutureBuilder(
+          //         future: AuthManager.tryAutoLogin(),
+          //         builder: (context, snapshot) {
+          //           return snapshot.connectionState == ConnectionState
+          //                 ? const SplashScreen()
+          //                 : const AuthScreen();
+          //         },
+          //     ),
+         home: HomeScreen(), //chay app ban dau
+          
         );
       }
     ),

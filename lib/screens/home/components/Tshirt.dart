@@ -6,8 +6,8 @@ import '../../../constants.dart';
 import 'product_card.dart';
 import 'section_title.dart';
 
-class NewArrival extends StatelessWidget {
-  const NewArrival({
+class Tshirt extends StatelessWidget {
+  const Tshirt({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +16,7 @@ class NewArrival extends StatelessWidget {
     return Column(
       children: [
         SectionTitle(
-          title: "New Arrival",
+          title: "Tshirt",
           pressSeeAll: () {},
         ),
         SingleChildScrollView(

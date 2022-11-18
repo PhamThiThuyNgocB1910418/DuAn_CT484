@@ -3,10 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myshop/constants.dart';
 import 'package:myshop/models/Category.dart';
 import 'package:myshop/models/Product.dart';
+import 'package:myshop/screens/auth/auth_screen.dart';
 
+import 'components/Pants.dart';
+import 'components/Tshirt.dart';
 import 'components/categories.dart';
-import 'components/new_arrival.dart';
-import 'components/popular.dart';
+import 'components/Dress.dart';
+import 'components/Shirt.dart';
 import 'components/product_card.dart';
 import 'components/search_form.dart';
 import 'components/section_title.dart';
@@ -65,91 +68,48 @@ class HomeScreen extends StatelessWidget {
             ),
             const Categories(),
             const SizedBox(height: defaultPadding),
-            const NewArrival(),
+            const Dress(),
             const SizedBox(height: defaultPadding),
-            const Popular(),
+            const Shirt(),
+            const Pants(),
+            const SizedBox(height: defaultPadding),
+            const Tshirt(),
+            const SizedBox(height: defaultPadding),
+
           ],
         ),
       ),
+
+      bottomNavigationBar: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.favorite),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.shopping_cart),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.person),
+              onPressed: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context){
+                  return AuthScreen();
+                })
+                );
+              },
+            )
+
+            //MainAxisAlignment:MainAxisAlignment.WrapAlignment.spaceBetween,
+          ]),
+      
     );
   }
 }
-
-// class NewArrival extends StatelessWidget {
-//   const NewArrival({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         SectionTitle(
-//           title: "New Arrival",
-//           pressSeeAll: () {},
-//         ),
-//         SingleChildScrollView(
-//           scrollDirection: Axis.horizontal,
-//           child: Row(
-//             children: List.generate(
-//               demo_product.length,
-//               (index) => Padding(
-//                 padding:
-//                     const EdgeInsets.only(left: defaultBorderRadius),
-//                 child: ProductCard(
-//                   image: demo_product[index].image,
-//                   title: demo_product[index].title,
-//                   price: demo_product[index].price,
-//                   bgColor: demo_product[index].bgColor,
-//                   // Color(0xFFEFEFF2),
-//                   press: () {},
-//                 ),
-//               ),
-//             ),
-//           ),
-//         )
-//       ],
-//     );
-//   }
-// }
-
-
-// class Popular extends StatelessWidget {
-//   const Popular({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         SectionTitle(
-//           title: "Popular",
-//           pressSeeAll: () {},
-//         ),
-//         SingleChildScrollView(
-//           scrollDirection: Axis.horizontal,
-//           child: Row(
-//             children: List.generate(
-//               demo_product.length,
-//               (index) => Padding(
-//                 padding:
-//                     const EdgeInsets.only(left: defaultBorderRadius),
-//                 child: ProductCard(
-//                   image: demo_product[index].image,
-//                   title: demo_product[index].title,
-//                   price: demo_product[index].price,
-//                   bgColor: demo_product[index].bgColor,
-//                   // Color(0xFFEFEFF2),
-//                   press: () {},
-//                 ),
-//               ),
-//             ),
-//           ),
-//         )
-//       ],
-//     );
-//   }
-// }
-
 

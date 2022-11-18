@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/screens/home/components/product_card.dart';
+import 'package:myshop/models/Product.dart';
+import 'package:myshop/screens/details/details_screen.dart';
 
 import '../../../constants.dart';
-import '../../../models/Product.dart';
+import 'product_card.dart';
 import 'section_title.dart';
 
-class Popular extends StatelessWidget {
-  const Popular({
+class Dress extends StatelessWidget {
+  const Dress({
     Key? key,
   }) : super(key: key);
 
@@ -15,7 +16,7 @@ class Popular extends StatelessWidget {
     return Column(
       children: [
         SectionTitle(
-          title: "Popular",
+          title: "Dress",
           pressSeeAll: () {},
         ),
         SingleChildScrollView(
@@ -24,15 +25,21 @@ class Popular extends StatelessWidget {
             children: List.generate(
               demo_product.length,
               (index) => Padding(
-                padding:
-                    const EdgeInsets.only(left: defaultBorderRadius),
+                padding: const EdgeInsets.only(left: defaultBorderRadius),
                 child: ProductCard(
                   image: demo_product[index].image,
                   title: demo_product[index].title,
                   price: demo_product[index].price,
                   bgColor: demo_product[index].bgColor,
                   // Color(0xFFEFEFF2),
-                  press: () {},
+                  press: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => 
+                            DetailsScreen(product: demo_product[index],),
+                        ));
+                  },
                 ),
               ),
             ),

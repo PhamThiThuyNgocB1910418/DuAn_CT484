@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myshop/screens/auth/auth_screen.dart';
 import 'package:myshop/screens/home/home_screen.dart';
 import 'package:provider/provider.dart';
 
