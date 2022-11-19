@@ -15,7 +15,7 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: product.bgColor,
+      //backgroundColor: product.bgColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -73,7 +73,8 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: defaultPadding),
-                      child: Text("Chi tiet ve chiec ao den nay"),
+                      child: Text(
+                          "Ngày nay việc tìm kiếm cho mình một bộ trang phục phù hợp và đẹp thì rất dễ vì trang phục ngày nay rất phong phú và đa dạng và được trưng bán ở khắp các cửa hàng trên những con đường ta thường đi hằng ngày . Nhưng không thể nói đến việc những website thương mại điện tử cũng được tạo ra nhằm phục vụ cho việc buôn bán và mua hàng của người dùng được thuận tiện hơn."),
                     ),
                     const Text(
                       "Colors",
@@ -82,23 +83,23 @@ class DetailsScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(height: defaultPadding /2),
+                    const SizedBox(height: defaultPadding / 2),
                     Row(
                       children: [
                         ColorDot(
                           color: const Color(0xFFBEEBEA),
                           isActive: false,
-                          press: () {} ,
+                          press: () {},
                         ),
                         ColorDot(
                           color: const Color(0xFF141B4A),
                           isActive: true,
-                          press: () {} ,
+                          press: () {},
                         ),
                         ColorDot(
                           color: const Color(0xFFF4E5C3),
                           isActive: false,
-                          press: () {} ,
+                          press: () {},
                         ),
                       ],
                     ),
@@ -114,8 +115,7 @@ class DetailsScreen extends StatelessWidget {
                             shape: const StadiumBorder(),
                           ),
                           child: const Text("Add to cart"),
-                          
-                          ),
+                        ),
                       ),
                     )
                   ],
@@ -128,33 +128,3 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 }
-
-// class ColorDot extends StatelessWidget {
-//   const ColorDot({
-//     Key? key, 
-//     required this.color,
-//     required this.isActive, 
-//     this.press,
-//   }) : super(key: key);
-
-//   final Color color;
-//   final bool isActive;
-//   final VoidCallback press;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: press,
-//       child: Container(
-//         padding: const EdgeInsets.all(defaultPadding / 4),
-//         decoration: BoxDecoration(
-//           border: Border.all(color: isActive ? primaryColor : Colors.transparent),
-//         ),
-//         child: CircleAvatar(
-//           radius: 10,
-//           backgroundColor: color,
-//         ),
-//       ),
-//     );
-//   }
-// }

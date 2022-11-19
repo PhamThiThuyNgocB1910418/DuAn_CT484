@@ -5,17 +5,19 @@ import '../../../constants.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
+    required this.id,
     required this.image,
     required this.title,
-    required this.bgColor,
-    required this.price,
-    required this.press,
+    //required this.bgColor,
+    required this.price, required this.press,
+    //required this.press,
   }) : super(key: key);
 
   final String image, title;
-  final Color bgColor;
-  final int price;
+  //final Color bgColor;
+  final double price;
   final VoidCallback press;
+  final String id;
 
   @override
   Widget build(BuildContext context) {

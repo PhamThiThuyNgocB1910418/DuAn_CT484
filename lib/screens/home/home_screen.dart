@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:myshop/constants.dart';
-import 'package:myshop/models/Category.dart';
-import 'package:myshop/models/Product.dart';
-import 'package:myshop/screens/auth/auth_screen.dart';
-import 'package:myshop/screens/cart/cart_screen.dart';
-
+import 'package:myshop/screens/screens.dart';
 import 'components/Pants.dart';
 import 'components/Tshirt.dart';
 import 'components/categories.dart';
@@ -106,8 +99,12 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             IconButton(
-              icon: const Icon(Icons.favorite),
-              onPressed: () {},
+              icon: const Icon(Icons.edit),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const UserProductsScreen();
+                }));
+              },
             ),
             IconButton(
               icon: const Icon(Icons.shopping_cart),
@@ -120,9 +117,16 @@ class HomeScreen extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.logout),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const AuthScreen();
-                }));
+                context.read<AuthManager>().logout();
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const AuthScreen();
+                  },
+                  // onPressed: () {
+                  //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //     return const AuthScreen();
+                  //   }
+                ));
               },
             )
 

@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:myshop/constants.dart';
-import 'package:myshop/screens/auth/auth_manager.dart';
-import 'package:myshop/screens/auth/auth_screen.dart';
-import 'package:myshop/screens/cart/cart_screen.dart';
-import 'package:myshop/screens/home/home_screen.dart';
-import 'package:myshop/screens/splash_screen.dart';
-import 'package:provider/provider.dart';
-import 'package:myshop/screens/cart/cart_item_card.dart';
-
+import 'package:myshop/screens/screens.dart';
 Future<void> main() async {
   await dotenv.load();
   runApp(const MyApp());
@@ -25,6 +16,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => AuthManager(),
         ),
+        ChangeNotifierProxyProvider<AuthManager, ProductsManager>(
+          create: (ctx) => ProductsManager(),
+          update: (ctx, authManager, productsManager) {
+            productsManager!.authToken = authManager.authToken;
+            return productsManager;
+          },
+        ),
+        // ChangeNotifierProvider(
+        //   create: (ctx) => CartManager(),
+        // ),
       ],
       child: Consumer<AuthManager>(builder: (context, AuthManager, child) {
         return MaterialApp(
@@ -38,20 +39,20 @@ class MyApp extends StatelessWidget {
               bodyText2: TextStyle(color: Colors.black54),
             ),
           ),
-          // home: AuthManager.isAuth
-          //     ? const AuthScreen()
-          //     : FutureBuilder(
-          //         future: AuthManager.tryAutoLogin(),
-          //         builder: (context, snapshot) {
-          //           return snapshot.connectionState == ConnectionState
-          //                 ? const SplashScreen()
-          //                 : const AuthScreen();
-          //         },
-          //     ),
+          home: AuthManager.isAuth
+              ? const AuthScreen()
+              : FutureBuilder(
+                  future: AuthManager.tryAutoLogin(),
+                  builder: (context, snapshot) {
+                    return snapshot.connectionState == ConnectionState
+                        ? const SplashScreen()
+                        : const AuthScreen();
+                  },
+                ),
 
-          home: const HomeScreen(), //chay app ban dau
+          //home: const HomeScreen(), //chay app ban dau
 
-          //home: const CartScreen(),
+          //home: const UserProductsScreen(),
         );
       }),
     );

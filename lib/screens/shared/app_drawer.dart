@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:myshop/ui/auth/auth_manager.dart';
+import 'package:myshop/screens/auth/auth_manager.dart';
 import 'package:provider/provider.dart';
 
 // import '../orders/orders_screen.dart';
 // import '../products/user_products_screen.dart';
+//import 'package:myshop/screens/';
 import '../auth/auth_manager.dart';
 
 class AppDrawer extends StatelessWidget {
