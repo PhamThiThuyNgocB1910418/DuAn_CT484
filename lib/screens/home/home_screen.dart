@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:myshop/constants.dart';
 import 'package:myshop/models/Category.dart';
 import 'package:myshop/models/Product.dart';
 import 'package:myshop/screens/auth/auth_screen.dart';
+import 'package:myshop/screens/cart/cart_screen.dart';
 
 import 'components/Pants.dart';
 import 'components/Tshirt.dart';
@@ -28,9 +30,19 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {},
           icon: SvgPicture.asset("assets/icons/menu.svg"),
         ),
+        // IconButton(
+        //   icon: const Icon(Icons.menu),
+        //   onPressed: () {},
+        // ),
+        //
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // IconButton(
+            //   icon: const Icon(Icons.location_on),
+            //   onPressed: () {},
+            // ),
+
             SvgPicture.asset("assets/icons/Location.svg"),
             const SizedBox(width: defaultPadding / 2),
             Text(
@@ -40,6 +52,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
+          // IconButton(
+          //   icon: const Icon(Icons.notifications),
+          //   onPressed: () {},
+          // ),
           IconButton(
             onPressed: () {},
             icon: SvgPicture.asset("assets/icons/Notification.svg"),
@@ -83,7 +99,11 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             IconButton(
               icon: const Icon(Icons.home),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const HomeScreen();
+                }));
+              },
             ),
             IconButton(
               icon: const Icon(Icons.favorite),
@@ -91,13 +111,17 @@ class HomeScreen extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(Icons.shopping_cart),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const CartScreen();
+                }));
+              },
             ),
             IconButton(
               icon: const Icon(Icons.logout),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return AuthScreen();
+                  return const AuthScreen();
                 }));
               },
             )

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myshop/constants.dart';
 
 import '../../../models/Category.dart';
+
 class Categories extends StatelessWidget {
   const Categories({
     Key? key,
@@ -37,7 +38,6 @@ class CategoryCard extends StatelessWidget {
     required this.press,
   }) : super(key: key);
 
-
   final String icon, title;
   final VoidCallback press;
   @override
@@ -45,16 +45,17 @@ class CategoryCard extends StatelessWidget {
     return OutlinedButton(
       onPressed: press,
       style: OutlinedButton.styleFrom(
-        shape:  const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(defaultBorderRadius)),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: defaultPadding/4, vertical:  defaultPadding/2),
+        padding: const EdgeInsets.symmetric(
+            horizontal: defaultPadding / 4, vertical: defaultPadding / 2),
         child: Column(
           children: [
             SvgPicture.asset(icon),
+            //Icon(Icons.location_city),
             const SizedBox(height: defaultPadding / 2),
             Text(
               title,

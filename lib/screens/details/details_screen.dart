@@ -114,6 +114,7 @@ class DetailsScreen extends StatelessWidget {
                             shape: const StadiumBorder(),
                           ),
                           child: const Text("Add to cart"),
+                          
                           ),
                       ),
                     )
