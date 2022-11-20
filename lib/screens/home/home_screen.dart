@@ -5,9 +5,9 @@ import 'components/Tshirt.dart';
 import 'components/categories.dart';
 import 'components/Dress.dart';
 import 'components/Shirt.dart';
-import 'components/product_card.dart';
+//import 'components/product_card.dart';
 import 'components/search_form.dart';
-import 'components/section_title.dart';
+//import 'components/section_title.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home';

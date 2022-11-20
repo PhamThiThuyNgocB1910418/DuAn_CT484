@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/models/Product.dart';
-import 'package:myshop/screens/details/details_screen.dart';
+//import 'package:myshop/models/Product.dart';
+// import 'package:myshop/screens/details/details_screen.dart';
 
-import '../../../constants.dart';
-import 'product_card.dart';
+// import '../../../constants.dart';
+// import 'product_card.dart';
 import 'section_title.dart';
 
 class Dress extends StatelessWidget {
@@ -37,7 +37,7 @@ class Dress extends StatelessWidget {
         //             Navigator.push(
         //                 context,
         //                 MaterialPageRoute(
-        //                   builder: (context) => 
+        //                   builder: (context) =>
         //                     DetailsScreen(product: demo_product[index],),
         //                 ));
         //           },
