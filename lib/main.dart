@@ -40,18 +40,18 @@ class MyApp extends StatelessWidget {
               bodyText2: TextStyle(color: Colors.black54),
             ),
           ),
-          home: AuthManager.isAuth
-              ? const AuthScreen()
-              : FutureBuilder(
-                  future: AuthManager.tryAutoLogin(),
-                  builder: (context, snapshot) {
-                    return snapshot.connectionState == ConnectionState
-                        ? const SplashScreen()
-                        : const AuthScreen();
-                  },
-                ),
+          // home: AuthManager.isAuth
+          //     ? const AuthScreen()
+          //     : FutureBuilder(
+          //         future: AuthManager.tryAutoLogin(),
+          //         builder: (context, snapshot) {
+          //           return snapshot.connectionState == ConnectionState
+          //               ? const SplashScreen()
+          //               : const AuthScreen();
+          //         },
+          //       ),
 
-          //home: const HomeScreen(), //chay app ban dau
+          home:  HomeScreen(), //chay app ban dau
 
           //home: const UserProductsScreen(),
         );

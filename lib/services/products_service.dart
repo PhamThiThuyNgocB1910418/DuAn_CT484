@@ -68,6 +68,7 @@ class ProductsService extends FirebaseService {
     final List<Product> products = [];
 
     try {
+      print(token);
       final filters =
           filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
       final productsUrl =
