@@ -19,8 +19,8 @@ class UserProductsScreen extends StatelessWidget {
     // final productsManager = ProductsManager();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 28, 6, 80),
-        title: const Text('All product'),
+        backgroundColor: Color.fromARGB(255, 255, 165, 221),
+        title: const Text('Quản lí sản phẩm'),
         actions: <Widget>[
           buildAddButton(
             context,

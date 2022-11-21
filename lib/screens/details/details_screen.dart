@@ -92,7 +92,7 @@ class DetailsScreen extends StatelessWidget {
                           press: () {},
                         ),
                         ColorDot(
-                          color: const Color(0xFF141B4A),
+                          color: Color.fromARGB(255, 255, 165, 221),
                           isActive: true,
                           press: () {},
                         ),

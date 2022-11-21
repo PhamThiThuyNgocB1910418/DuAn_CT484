@@ -3,8 +3,6 @@ import 'package:myshop/screens/details/details_screen.dart';
 import 'package:myshop/screens/home/components/product_card.dart';
 import 'package:myshop/screens/home/components/section_title.dart';
 import 'package:myshop/screens/screens.dart';
-import 'components/Pants.dart';
-import 'components/Tshirt.dart';
 import 'components/categories.dart';
 import 'components/Dress.dart';
 import 'components/Shirt.dart';
